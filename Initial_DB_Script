@@ -1,0 +1,36 @@
+CREATE TABLE "Date" (
+id INTEGER NOT NULL,
+"Year" INTEGER,
+"Month" INTEGER,
+"Month_Name" TEXT,
+"Week_Name" TEXT,
+"Week_Number" INTEGER,
+"Day" INTEGER,
+"Full_Date" TEXT,
+"Day_Of_Week" TEXT,
+"Quater" INTEGER,
+"Day_Key" INTEGER,
+PRIMARY KEY(id))
+WITHOUT ROWID;
+
+
+CREATE TABLE "Event" (
+id INTEGER NOT NULL,
+"Event_Name" TEXT NOT NULL,
+"Event_Start_Date" TEXT NOT NULL,
+"Event_Start_Hour" TEXT NOT NULL,
+"Event_Start_Minute" TEXT NOT NULL,
+"Event_End_Date" TEXT NOT NULL,
+"Event_End_Hour" TEXT NOT NULL,
+"Event_End_Minute" TEXT NOT NULL,
+"Rec_Created_Date" TEXT NOT NULL,
+"Rec_Creared_Timestamp" TEXT,
+"Rec_Created_By" TEXT,
+"Rec_Modified_Date" TEXT,
+"Rec_Modified_Timestamp" TEXT,
+"Rec_Modified_By" TEXT,
+"Date_id" INTEGER NOT NULL,CONSTRAINT "Date-Event"
+FOREIGN KEY ("Date_id")
+REFERENCES "Date"(id),
+PRIMARY KEY(id));
+
